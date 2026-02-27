@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://do70tykhdv0ne"]
+
+[ext_resource type="Shader" uid="uid://dcjxd2chkt3di" path="res://shader/shd_shield.gdshader" id="1_3ba0r"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_c5omq"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ji3vs"]
+noise = SubResource("FastNoiseLite_c5omq")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_3ba0r")
+shader_parameter/shield_color = Color(0.1, 0.6, 1, 1)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ji3vs")
+shader_parameter/wave_height = 0.2
+shader_parameter/wave_speed = Vector2(0.1, 0.05)
+shader_parameter/fresnel_power = 3.0
+shader_parameter/center_visibility = 0.0
+shader_parameter/hit_position = Vector3(1, 1, 0.2)
+shader_parameter/hit_progress = 0.282000013395
+shader_parameter/hit_color = Color(2.454, 0.819, 0.67, 1)
+shader_parameter/hit_radius = 4.0
+shader_parameter/hit_ring_width = 0.3
+shader_parameter/hit_push_force = 0.5
