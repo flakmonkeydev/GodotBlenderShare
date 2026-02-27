@@ -1,7 +1,7 @@
 shader_type spatial;
 render_mode blend_add, depth_draw_opaque, cull_disabled;
 
-// --- PARAMETERS: HIỆU ỨNG CƠ BẢN ---
+// --- PARAMETERS: 
 uniform vec4 shield_color : source_color = vec4(0.1, 0.6, 1.0, 1.0); // Godot 3: hint_color
 uniform sampler2D noise_texture; 
 uniform float wave_height : hint_range(0.0, 2.0) = 0.2;
