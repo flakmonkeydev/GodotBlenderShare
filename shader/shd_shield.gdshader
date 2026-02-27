@@ -11,9 +11,9 @@ uniform float center_visibility : hint_range(0.0, 1.0) = 0.0;
 
 
 uniform vec3 hit_position = vec3(0.0, 1.0, 0.0); 
-uniform float hit_progress : hint_range(0.0, 1.0) = 0.0; 
+uniform float hit_progress : hint_range(0.0, 1.0) = 0.2; 
 uniform vec4 hit_color : source_color = vec4(1.0, 1.0, 1.0, 1.0); 
-uniform float hit_radius = 5.0; 
+uniform float hit_radius = 3.0; 
 uniform float hit_ring_width: hint_range(0.0, 1.0, 0.1) = 0.3; 
 uniform float hit_push_force = 0.5;
 
