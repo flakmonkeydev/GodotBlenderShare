@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://75r72jevbl1f"]
+
+[ext_resource type="Shader" uid="uid://ykn8hxohnb7c" path="res://shader/visual_shader.tres" id="1_rye50"]
+[ext_resource type="Texture2D" uid="uid://dc3cp8q6adt2j" path="res://texture/albedo.png" id="2_c7tbn"]
+[ext_resource type="Texture2D" uid="uid://so6hno6iwttj" path="res://texture/attribute.png" id="3_5357q"]
+[ext_resource type="PackedScene" uid="uid://cuyalxysy2y2k" path="res://test/player_model_1.glb" id="4_6kqt6"]
+[ext_resource type="PackedScene" uid="uid://cdu51ysbkpwt6" path="res://test/player_model_body_1.glb" id="5_c7tbn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5357q"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_6kqt6"]
+sky_material = SubResource("ProceduralSkyMaterial_5357q")
+
+[sub_resource type="Environment" id="Environment_mx6wx"]
+background_mode = 2
+sky = SubResource("Sky_6kqt6")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4krf1"]
+render_priority = 0
+shader = ExtResource("1_rye50")
+shader_parameter/albedo = ExtResource("2_c7tbn")
+shader_parameter/attribute = ExtResource("3_5357q")
+shader_parameter/emission_level = 2.0
+
+[node name="Node3D" type="Node3D" unique_id=1995572424]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=107285178]
+transform = Transform3D(0.9164255, 0.3465879, -0.20010264, 2.7805944e-08, 0.49999994, 0.86602545, 0.40020522, -0.7936479, 0.45821267, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=490601794]
+environment = SubResource("Environment_mx6wx")
+
+[node name="player_model_1" parent="." unique_id=773082195 instance=ExtResource("4_6kqt6")]
+
+[node name="leg" parent="player_model_1/RigLeg/Skeleton3D" parent_id_path=PackedInt32Array(773082195, 1576496046) index="1" unique_id=1987621623]
+surface_material_override/0 = SubResource("ShaderMaterial_4krf1")
+
+[node name="player_model_body_1" parent="." unique_id=1344301212 instance=ExtResource("5_c7tbn")]
+
+[node name="body" parent="player_model_body_1/RigBody/Skeleton3D" parent_id_path=PackedInt32Array(1344301212, 269822980) index="3" unique_id=97934441]
+surface_material_override/0 = SubResource("ShaderMaterial_4krf1")
+
+[editable path="player_model_1"]
+[editable path="player_model_body_1"]
