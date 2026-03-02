@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://qwc3aewopwhs"]
 
-[ext_resource type="Script" uid="uid://ctebrpxgji0h1" path="res://DEMO/hit_impact/hit_impact_source.gd" id="1_7e6al"]
-[ext_resource type="Shader" uid="uid://ctryfu3x1dved" path="res://DEMO/hit_impact/shader_particle.gdshader" id="1_7nd70"]
+[ext_resource type="Script" uid="uid://d285hxacokyns" path="res://DEMO/hit_impact/hit_impact_source.gd" id="1_7e6al"]
+[ext_resource type="Shader" uid="uid://ds2i2bn668svj" path="res://DEMO/hit_impact/shader_particle.gdshader" id="1_7nd70"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://b36n8r2ow7fyw" path="res://DEMO/hit_impact/hit_impact_texture.png" id="2_g7wkh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g7wkh"]
@@ -241,7 +241,8 @@ instance_shader_parameters/color_mode = 1
 instance_shader_parameters/manual_color = Color(2.454227, 1.5381852, 1.0180423, 1)
 instance_shader_parameters/texture_index = 9.0
 emitting = false
-lifetime = 0.7
+amount = 16
+lifetime = 0.45
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_obbgj")
