@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cry4ntfsaqv62"]
+
+[ext_resource type="ArrayMesh" uid="uid://bkea0f1vkcjjc" path="res://DEMO/shield_1/mesh_shield_1.obj" id="1_m8m1a"]
+[ext_resource type="Shader" uid="uid://dcjxd2chkt3di" path="res://DEMO/shield_1/shader_shield_1.gdshader" id="2_3hn65"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c5omq"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ji3vs"]
+sky_material = SubResource("ProceduralSkyMaterial_c5omq")
+
+[sub_resource type="Environment" id="Environment_dthav"]
+background_mode = 2
+sky = SubResource("Sky_ji3vs")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_c5omq"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ji3vs"]
+noise = SubResource("FastNoiseLite_c5omq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iep5s"]
+render_priority = 0
+shader = ExtResource("2_3hn65")
+shader_parameter/shield_color = Color(0.1, 0.6, 1, 1)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ji3vs")
+shader_parameter/wave_height = 0.2
+shader_parameter/wave_speed = Vector2(0.1, 0.05)
+shader_parameter/fresnel_power = 3.0
+shader_parameter/center_visibility = 0.0
+shader_parameter/hit_position = Vector3(1, 1, 0.2)
+shader_parameter/hit_progress = 0.2
+shader_parameter/hit_color = Color(2.454, 0.819, 0.67, 1)
+shader_parameter/hit_radius = 3.0
+shader_parameter/hit_ring_width = 0.3
+shader_parameter/hit_push_force = 0.5
+
+[node name="Demo" type="Node3D" unique_id=494957656]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1641593808]
+environment = SubResource("Environment_dthav")
+
+[node name="Shield" type="MeshInstance3D" parent="." unique_id=2099602677]
+mesh = ExtResource("1_m8m1a")
+surface_material_override/0 = SubResource("ShaderMaterial_iep5s")

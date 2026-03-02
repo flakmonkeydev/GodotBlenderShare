@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://cevstovp0f372"]
+
+[ext_resource type="PackedScene" uid="uid://qwc3aewopwhs" path="res://DEMO/hit_impact/hit_impact_source.tscn" id="1_yw0x7"]
+
+[sub_resource type="GDScript" id="GDScript_crk48"]
+script/source = "extends Node3D
+
+@onready var impacts: Node3D = $Impacts
+@export var interval: float = 2.5
+var vfxs: Array
+
+func _ready() -> void:
+	randomize()
+	vfxs = impacts.find_children(\"Impact*\", \"HitImpact\", true, false)
+	for vfx: HitImpact in vfxs:
+		var timer: Timer = Timer.new()
+		timer.autostart = true	
+		timer.one_shot = true
+		vfx.add_child(timer)
+		timer.timeout.connect(random_emit.bind(vfx, timer))
+
+func random_vfx_parameters(vfx: HitImpact) -> void:
+	vfx.flare_color = get_vfx_random_color()
+	vfx.particle_color = get_vfx_random_color()
+	vfx.particle_color = get_vfx_random_color()
+	vfx.flare_texture_index = randi_range(3, 15)
+	vfx.particle_texture_index = randi_range(3, 15)
+	vfx.shockwave_texture_index = randi_range(0, 2)
+	
+func get_vfx_random_color(energy: float = 2.5) -> Color:
+	var random_hue = randf()
+	# Saturation cao (1.0) cho màu cực tươi
+	# Value = 1.0
+	var c = Color.from_hsv(random_hue, 1.0, 1.0)
+	
+	# Nhân với energy để tạo độ chói (HDR), vượt quá giới hạn 1.0 thông thường
+	c.r *= energy
+	c.g *= energy
+	c.b *= energy
+	
+	return c
+func random_emit(vfx: HitImpact, timer: Timer) -> void:
+	vfx._start_emit()
+	random_vfx_parameters(vfx)
+	timer.start(randf_range(interval * 0.75, interval * 1.25))
+"
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bwm2b"]
+sky_top_color = Color(0.09274944, 0.12119896, 0.157401, 1)
+sky_horizon_color = Color(0.09274944, 0.12119896, 0.157401, 1)
+ground_bottom_color = Color(0.09274944, 0.12119896, 0.157401, 1)
+ground_horizon_color = Color(0.09274944, 0.12119896, 0.157401, 1)
+
+[sub_resource type="Sky" id="Sky_7e6al"]
+sky_material = SubResource("ProceduralSkyMaterial_bwm2b")
+
+[sub_resource type="Environment" id="Environment_yw0x7"]
+background_mode = 2
+sky = SubResource("Sky_7e6al")
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 1.0
+
+[node name="Demo" type="Node3D" unique_id=550108267]
+script = SubResource("GDScript_crk48")
+interval = 2.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1425827641]
+environment = SubResource("Environment_yw0x7")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1872409225]
+transform = Transform3D(1, 0, 0, 0, 0.62034047, 0.78433263, 0, -0.78433263, 0.62034047, 0, 12.4700985, 9.716175)
+fov = 35.0
+
+[node name="Impacts" type="Node3D" parent="." unique_id=1600155880]
+
+[node name="Impact" parent="Impacts" unique_id=1461281075 instance=ExtResource("1_yw0x7")]
+
+[node name="Impact2" parent="Impacts" unique_id=1404097642 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4399447, 0, 0)
+
+[node name="Impact3" parent="Impacts" unique_id=1620009753 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7820287, 0, 0)
+
+[node name="Impact4" parent="Impacts" unique_id=1532896959 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8445125, 0, 0)
+
+[node name="Impact5" parent="Impacts" unique_id=350082535 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6576481, 0, 0)
+
+[node name="Impact6" parent="Impacts" unique_id=1610786050 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7760515, 0, 0)
+
+[node name="Impact7" parent="Impacts" unique_id=587455244 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7686357, 0, 0)
+
+[node name="Impact8" parent="Impacts" unique_id=1963655746 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8445125, 0, 2.0070236)
+
+[node name="Impact9" parent="Impacts" unique_id=1626181505 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7820287, 0, 2.0070236)
+
+[node name="Impact10" parent="Impacts" unique_id=1151824785 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4399447, 0, 2.0070236)
+
+[node name="Impact11" parent="Impacts" unique_id=808165279 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.0070236)
+
+[node name="Impact12" parent="Impacts" unique_id=1297270594 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6576481, 0, 2.0070236)
+
+[node name="Impact13" parent="Impacts" unique_id=1861750207 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7760515, 0, 2.0070236)
+
+[node name="Impact14" parent="Impacts" unique_id=502512579 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7686357, 0, 2.0070236)
+
+[node name="Impact15" parent="Impacts" unique_id=258138100 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8445125, 0, -2.3255718)
+
+[node name="Impact16" parent="Impacts" unique_id=2023641012 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7820287, 0, -2.3255718)
+
+[node name="Impact17" parent="Impacts" unique_id=77746626 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4399447, 0, -2.3255718)
+
+[node name="Impact18" parent="Impacts" unique_id=715457186 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3255718)
+
+[node name="Impact19" parent="Impacts" unique_id=1789696714 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6576481, 0, -2.3255718)
+
+[node name="Impact20" parent="Impacts" unique_id=2001610599 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7760515, 0, -2.3255718)
+
+[node name="Impact21" parent="Impacts" unique_id=1465567408 instance=ExtResource("1_yw0x7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7686357, 0, -2.3255718)

@@ -1,6 +1,7 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://do70tykhdv0ne"]
 
-[ext_resource type="Shader" uid="uid://dcjxd2chkt3di" path="res://shader/shd_shield.gdshader" id="1_3ba0r"]
+[ext_resource type="Shader" uid="uid://dcjxd2chkt3di" path="res://DEMO/shield_1/shader_shield_1.gdshader" id="1_3ba0r"]
+
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_c5omq"]
 
