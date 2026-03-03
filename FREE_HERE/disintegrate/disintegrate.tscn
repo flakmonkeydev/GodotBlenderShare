@@ -125,7 +125,6 @@ meshes = [NodePath("character/Alpha_Joints"), NodePath("character/Alpha_Surface"
 particles = [NodePath("ParticleCenter/Dust"), NodePath("ParticleCenter/Dust2")]
 delay_emit_time = 1.0
 duration = 3.0
-disintegrate = true
 
 [node name="Terrain" parent="." unique_id=1149152084 instance=ExtResource("1_quiv8")]
 visible = false
@@ -139,16 +138,17 @@ surface_material_override/0 = SubResource("ShaderMaterial_s24bw")
 [node name="character" parent="." unique_id=2036318534 instance=ExtResource("5_d46jy")]
 
 [node name="Alpha_Joints" parent="character" index="0" unique_id=1074425739]
-instance_shader_parameters/dissolve_amount = 1.1
+instance_shader_parameters/dissolve_amount = -0.1
 surface_material_override/0 = SubResource("ShaderMaterial_7mkdn")
 
 [node name="Alpha_Surface" parent="character" index="1" unique_id=996372999]
-instance_shader_parameters/dissolve_amount = 1.1
+instance_shader_parameters/dissolve_amount = -0.1
 surface_material_override/0 = SubResource("ShaderMaterial_7mkdn")
 
 [node name="ParticleCenter" type="Node3D" parent="." unique_id=1791129909]
 
 [node name="Dust" type="GPUParticles3D" parent="ParticleCenter" unique_id=52180358]
+visible = false
 material_override = SubResource("StandardMaterial3D_xwml4")
 cast_shadow = 0
 emitting = false
@@ -160,6 +160,7 @@ process_material = SubResource("ParticleProcessMaterial_d46jy")
 draw_pass_1 = SubResource("QuadMesh_hmmpr")
 
 [node name="Dust2" type="GPUParticles3D" parent="ParticleCenter" unique_id=964122581]
+visible = false
 material_override = SubResource("StandardMaterial3D_xwml4")
 cast_shadow = 0
 emitting = false
