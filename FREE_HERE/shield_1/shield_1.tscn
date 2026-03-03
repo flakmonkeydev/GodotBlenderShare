@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cry4ntfsaqv62"]
 
-[ext_resource type="ArrayMesh" uid="uid://bkea0f1vkcjjc" path="res://DEMO/shield_1/mesh_shield_1.obj" id="1_m8m1a"]
-[ext_resource type="Shader" uid="uid://dcjxd2chkt3di" path="res://DEMO/shield_1/shader_shield_1.gdshader" id="2_3hn65"]
+[ext_resource type="ArrayMesh" uid="uid://bkea0f1vkcjjc" path="res://FREE_HERE/shield_1/mesh_shield_1.obj" id="1_m8m1a"]
+[ext_resource type="Shader" uid="uid://dcjxd2chkt3di" path="res://FREE_HERE/shield_1/shader_shield_1.gdshader" id="2_3hn65"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c5omq"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

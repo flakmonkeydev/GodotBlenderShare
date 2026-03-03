@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://iy024s0q2yxk"
-path="res://.godot/imported/character.glb-9e0ed93871a2d93e122eb4647b307820.scn"
+uid="uid://chdpr1iapa3yh"
+path="res://.godot/imported/player_leg_1.glb-47f18bbc9f73f6777ce588fd3b6e3e7c.scn"
 
 [deps]
 
-source_file="res://model/character.glb"
-dest_files=["res://.godot/imported/character.glb-9e0ed93871a2d93e122eb4647b307820.scn"]
+source_file="res://model/player_leg_1.glb"
+dest_files=["res://.godot/imported/player_leg_1.glb-47f18bbc9f73f6777ce588fd3b6e3e7c.scn"]
 
 [params]
 
@@ -39,7 +39,7 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "animations": {
-"idle": {
+"leg_idle": {
 "save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/keep_custom_tracks": "",
@@ -2095,7 +2095,7 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": 0
 },
-"run": {
+"leg_run": {
 "save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/keep_custom_tracks": "",

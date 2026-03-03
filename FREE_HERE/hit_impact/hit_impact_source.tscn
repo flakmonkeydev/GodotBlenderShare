@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://qwc3aewopwhs"]
 
-[ext_resource type="Script" uid="uid://d285hxacokyns" path="res://DEMO/hit_impact/hit_impact_source.gd" id="1_7e6al"]
-[ext_resource type="Shader" uid="uid://ds2i2bn668svj" path="res://DEMO/hit_impact/shader_particle.gdshader" id="1_7nd70"]
-[ext_resource type="CompressedTexture2DArray" uid="uid://b36n8r2ow7fyw" path="res://DEMO/hit_impact/hit_impact_texture.png" id="2_g7wkh"]
+[ext_resource type="Script" uid="uid://d285hxacokyns" path="res://FREE_HERE/hit_impact/hit_impact_source.gd" id="1_7e6al"]
+[ext_resource type="Shader" uid="uid://ds2i2bn668svj" path="res://FREE_HERE/hit_impact/shader_particle.gdshader" id="1_7nd70"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://b36n8r2ow7fyw" path="res://FREE_HERE/hit_impact/hit_impact_texture.png" id="2_g7wkh"]
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g7wkh"]
 render_priority = 0

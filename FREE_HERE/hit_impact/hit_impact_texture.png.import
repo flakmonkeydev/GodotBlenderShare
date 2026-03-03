@@ -3,15 +3,15 @@
 importer="2d_array_texture"
 type="CompressedTexture2DArray"
 uid="uid://b36n8r2ow7fyw"
-path="res://.godot/imported/hit_impact_texture.png-238d31783d1ab25756ade1638926051b.ctexarray"
+path="res://.godot/imported/hit_impact_texture.png-b7cc62180265f1128fbf868c287fcf3d.ctexarray"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DEMO/hit_impact/hit_impact_texture.png"
-dest_files=["res://.godot/imported/hit_impact_texture.png-238d31783d1ab25756ade1638926051b.ctexarray"]
+source_file="res://FREE_HERE/hit_impact/hit_impact_texture.png"
+dest_files=["res://.godot/imported/hit_impact_texture.png-b7cc62180265f1128fbf868c287fcf3d.ctexarray"]
 
 [params]
 

@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cevstovp0f372"]
 
 [ext_resource type="Texture2D" uid="uid://cmqb47d1s16ir" path="res://texture/sky/sky_17_2k.png" id="1_crk48"]
-[ext_resource type="PackedScene" uid="uid://qwc3aewopwhs" path="res://DEMO/hit_impact/hit_impact_source.tscn" id="1_yw0x7"]
+[ext_resource type="PackedScene" uid="uid://qwc3aewopwhs" path="res://FREE_HERE/hit_impact/hit_impact_source.tscn" id="1_yw0x7"]
+
 
 [sub_resource type="GDScript" id="GDScript_crk48"]
 script/source = "extends Node3D

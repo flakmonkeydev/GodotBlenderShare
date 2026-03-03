@@ -22,11 +22,12 @@ window/size/mode=3
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/asset_placer/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
+enabled=PackedStringArray("res://addons/asset_placer/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
+"res://FREE_HERE/": "green",
 "res://TEST/": "yellow"
 }
 

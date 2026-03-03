@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://vvayjv3rbx1d"]
+[gd_scene format=3 uid="uid://vvayjv3rbx1d"]
 
 [ext_resource type="PackedScene" uid="uid://jib546bbort5" path="res://demo/assets/models/Tunnel.glb" id="1_1sr0i"]
 [ext_resource type="Material" uid="uid://nbbdrx8vma80" path="res://demo/assets/materials/M_rock23_tp.tres" id="2_lkb1r"]

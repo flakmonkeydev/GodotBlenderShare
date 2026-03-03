@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwnhqfjq7v1pq"]
+[gd_scene format=3 uid="uid://dwnhqfjq7v1pq"]
 
 [ext_resource type="Material" uid="uid://d0hyi5n6ng25w" path="res://demo/assets/materials/M_rock23_black_tp.tres" id="1_goand"]
 
