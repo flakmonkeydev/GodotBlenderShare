@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1650
 window/size/viewport_height=960
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/asset_placer/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
+
 [file_customization]
 
 folder_colors={

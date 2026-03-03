@@ -2,7 +2,6 @@
 
 [ext_resource type="Shader" uid="uid://dcjxd2chkt3di" path="res://DEMO/shield_1/shader_shield_1.gdshader" id="1_3ba0r"]
 
-
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_c5omq"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ji3vs"]
