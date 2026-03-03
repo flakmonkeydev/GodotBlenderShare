@@ -4,8 +4,8 @@ render_mode cull_disabled, depth_draw_opaque;
 uniform vec4 albedo : source_color = vec4(1.0);
 uniform sampler2D texture_albedo : source_color;
 
-uniform float object_height_min = 0.0;
-uniform float object_height_max = 2.0;
+instance uniform float object_height_min = 0.0;
+instance uniform float object_height_max = 2.0;
 uniform int dissolve_mode : hint_enum("Bottom Up", "Top Down", "Noise Only") = 0;
 instance uniform float dissolve_amount : hint_range(-0.1, 1.1) = 0.0;
 
