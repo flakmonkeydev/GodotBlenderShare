@@ -42,7 +42,7 @@ shader_parameter/dissolve_mode = 2
 shader_parameter/edge_width = 0.02
 shader_parameter/edge_color = Color(3, 1, 0.1, 1)
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_0glom")
-shader_parameter/noise_scale = 1.0
+shader_parameter/noise_scale = 10.0
 shader_parameter/noise_influence = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xwml4"]
@@ -50,6 +50,7 @@ cull_mode = 2
 shading_mode = 0
 vertex_color_use_as_albedo = true
 vertex_color_is_srgb = true
+albedo_color = Color(3, 1, 0.1, 1)
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
@@ -57,8 +58,8 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="Gradient" id="Gradient_d46jy"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 1, 1, 1)
+offsets = PackedFloat32Array(0.33050847, 1)
+colors = PackedColorArray(1.353256, 1.353256, 1.353256, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_hmmpr"]
 gradient = SubResource("Gradient_d46jy")
@@ -86,7 +87,7 @@ data = {
 image = SubResource("Image_d46jy")
 
 [sub_resource type="Curve" id="Curve_d46jy"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.30337083), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_hmmpr"]
@@ -102,20 +103,21 @@ angle_min = -720.0
 angle_max = 720.0
 direction = Vector3(0, 1, 0)
 spread = 180.0
-initial_velocity_min = 1.0
-initial_velocity_max = 2.0
-gravity = Vector3(0, 0.5, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0.25, 0)
 damping_min = 0.05
 damping_max = 0.1
 damping_curve = SubResource("CurveTexture_gq4f1")
 scale_curve = SubResource("CurveTexture_hmmpr")
 color_ramp = SubResource("GradientTexture1D_hmmpr")
 turbulence_enabled = true
-turbulence_noise_strength = 0.2
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 1.0
 turbulence_influence_min = 0.020000001
 
 [sub_resource type="QuadMesh" id="QuadMesh_hmmpr"]
-size = Vector2(0.02, 0.02)
+size = Vector2(0.01, 0.01)
 
 [node name="Disintegrate" type="Node3D" unique_id=1596638685 node_paths=PackedStringArray("meshes", "particles")]
 script = ExtResource("1_xwml4")
@@ -150,7 +152,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_7mkdn")
 material_override = SubResource("StandardMaterial3D_xwml4")
 cast_shadow = 0
 emitting = false
-amount = 500
+amount = 1000
 lifetime = 3.0
 one_shot = true
 explosiveness = 0.75
@@ -161,7 +163,7 @@ draw_pass_1 = SubResource("QuadMesh_hmmpr")
 material_override = SubResource("StandardMaterial3D_xwml4")
 cast_shadow = 0
 emitting = false
-amount = 500
+amount = 1000
 lifetime = 3.0
 one_shot = true
 explosiveness = 0.75
