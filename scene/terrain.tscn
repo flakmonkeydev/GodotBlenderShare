@@ -36,177 +36,177 @@ mesh = SubResource("BoxMesh_f5x5y")
 surface_material_override/0 = SubResource("StandardMaterial3D_gupdp")
 
 [node name="Sketchfab_Scene" parent="StaticBody3D/Mesh" unique_id=1085446156 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-0.32542688, 0, 0.9455672, 0, 1, 0, -0.9455672, 0, -0.32542688, -7.1608562, 0.77152634, 8.301798)
+transform = Transform3D(-0.32542688, 0, 0.9455672, 0, 1, 0, -0.9455672, 0, -0.32542688, -7.1608562, 0.33486032, 8.301798)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (1)" parent="StaticBody3D/Mesh" unique_id=534547058 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-0.492485, 0, -0.8703209, 0, 1, 0, 0.8703209, 0, -0.492485, -5.0360527, 0.77152634, 1.4097176)
+transform = Transform3D(-0.492485, 0, -0.8703209, 0, 1, 0, 0.8703209, 0, -0.492485, -5.0360527, 0.33486032, 1.4097176)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (2)" parent="StaticBody3D/Mesh" unique_id=504876143 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.9993793, 0, -0.035228044, 0, 1, 0, 0.035228044, 0, 0.9993793, -1.072176, 0.7715244, 13.025196)
+transform = Transform3D(0.9993793, 0, -0.035228044, 0, 1, 0, 0.035228044, 0, 0.9993793, -1.072176, 0.33485842, 13.025196)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (3)" parent="StaticBody3D/Mesh" unique_id=972394259 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.5465747, 0, 0.83741033, 0, 1, 0, -0.83741033, 0, 0.5465747, 5.35732, 0.77152634, 13.156361)
+transform = Transform3D(0.5465747, 0, 0.83741033, 0, 1, 0, -0.83741033, 0, 0.5465747, 5.35732, 0.33486032, 13.156361)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (4)" parent="StaticBody3D/Mesh" unique_id=1055338220 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-0.997099, 0, 0.07611582, 0, 1, 0, -0.07611582, 0, -0.997099, 12.838592, 0.77152634, 11.570948)
+transform = Transform3D(-0.997099, 0, 0.07611582, 0, 1, 0, -0.07611582, 0, -0.997099, 12.838592, 0.33486032, 11.570948)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (5)" parent="StaticBody3D/Mesh" unique_id=2020052852 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-0.98974025, 0, -0.14287807, 0, 1, 0, 0.14287807, 0, -0.98974025, 26.576519, 0.7715244, 3.722412)
+transform = Transform3D(-0.98974025, 0, -0.14287807, 0, 1, 0, 0.14287807, 0, -0.98974025, 26.576519, 0.33485842, 3.722412)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (6)" parent="StaticBody3D/Mesh" unique_id=29459101 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.9963722, 0, -0.08510193, 0, 1, 0, 0.08510193, 0, 0.9963722, 27.360882, 0.77152634, -9.097319)
+transform = Transform3D(0.9963722, 0, -0.08510193, 0, 1, 0, 0.08510193, 0, 0.9963722, 27.360882, 0.33486032, -9.097319)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (7)" parent="StaticBody3D/Mesh" unique_id=1552483742 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-0.9130649, 0, 0.40781412, 0, 1, 0, -0.40781412, 0, -0.9130649, 19.504997, 0.77152634, -25.711458)
+transform = Transform3D(-0.9130649, 0, 0.40781412, 0, 1, 0, -0.40781412, 0, -0.9130649, 19.504997, 0.33486032, -25.711458)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (8)" parent="StaticBody3D/Mesh" unique_id=2075149508 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.8731906, 0, -0.4873788, 0, 1, 0, 0.4873788, 0, 0.8731906, 5.8471613, 0.77152634, -24.221758)
+transform = Transform3D(0.8731906, 0, -0.4873788, 0, 1, 0, 0.4873788, 0, 0.8731906, 5.8471613, 0.33486032, -24.221758)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (9)" parent="StaticBody3D/Mesh" unique_id=1112980956 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-0.005324036, 0, 0.99998575, 0, 1, 0, -0.99998575, 0, -0.005324036, -4.967411, 0.77152634, -10.91678)
+transform = Transform3D(-0.005324036, 0, 0.99998575, 0, 1, 0, -0.99998575, 0, -0.005324036, -4.967411, 0.33486032, -10.91678)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (10)" parent="StaticBody3D/Mesh" unique_id=1306199431 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-0.96294385, 0, 0.26970157, 0, 1, 0, -0.26970157, 0, -0.96294385, -12.564805, 0.77152634, 0.48594856)
+transform = Transform3D(-0.96294385, 0, 0.26970157, 0, 1, 0, -0.26970157, 0, -0.96294385, -12.564805, 0.33486032, 0.48594856)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (11)" parent="StaticBody3D/Mesh" unique_id=868845254 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-0.9991257, 0, -0.041805, 0, 1, 0, 0.041805, 0, -0.9991257, -12.229737, 0.77152634, 9.306721)
+transform = Transform3D(-0.9991257, 0, -0.041805, 0, 1, 0, 0.041805, 0, -0.9991257, -12.229737, 0.33486032, 9.306721)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (12)" parent="StaticBody3D/Mesh" unique_id=1831819249 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.9186061, 0, -0.39517424, 0, 1, 0, 0.39517424, 0, 0.9186061, -10.589586, 0.77152824, 16.428244)
+transform = Transform3D(0.9186061, 0, -0.39517424, 0, 1, 0, 0.39517424, 0, 0.9186061, -10.589586, 0.33486223, 16.428244)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (13)" parent="StaticBody3D/Mesh" unique_id=785865740 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.11612344, 0, 0.9932347, 0, 1, 0, -0.9932347, 0, 0.11612344, -4.312933, 0.77152824, 18.685343)
+transform = Transform3D(0.11612344, 0, 0.9932347, 0, 1, 0, -0.9932347, 0, 0.11612344, -4.312933, 0.33486223, 18.685343)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (14)" parent="StaticBody3D/Mesh" unique_id=521274941 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-0.47198945, 0, 0.8816041, 0, 1, 0, -0.8816041, 0, -0.47198945, -0.07654381, 0.77152634, 18.849829)
+transform = Transform3D(-0.47198945, 0, 0.8816041, 0, 1, 0, -0.8816041, 0, -0.47198945, -0.07654381, 0.33486032, 18.849829)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (15)" parent="StaticBody3D/Mesh" unique_id=1661102532 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-0.9936085, 0, 0.11288038, 0, 1, 0, -0.11288038, 0, -0.9936085, 19.52907, 0.77152634, 9.424793)
+transform = Transform3D(-0.9936085, 0, 0.11288038, 0, 1, 0, -0.11288038, 0, -0.9936085, 19.52907, 0.33486032, 9.424793)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (16)" parent="StaticBody3D/Mesh" unique_id=1469890356 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.930701, 0, -0.3657805, 0, 1, 0, 0.3657805, 0, 0.930701, 21.126312, 0.77152634, 1.8743)
+transform = Transform3D(0.930701, 0, -0.3657805, 0, 1, 0, 0.3657805, 0, 0.930701, 21.126312, 0.33486032, 1.8743)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (17)" parent="StaticBody3D/Mesh" unique_id=2081361259 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.82864034, 0, 0.5597812, 0, 1, 0, -0.5597812, 0, 0.82864034, 20.90464, 0.7715244, -5.975733)
+transform = Transform3D(0.82864034, 0, 0.5597812, 0, 1, 0, -0.5597812, 0, 0.82864034, 20.90464, 0.33485842, -5.975733)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (18)" parent="StaticBody3D/Mesh" unique_id=1187002641 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-0.7272288, 0, 0.68639505, 0, 1, 0, -0.68639505, 0, -0.7272288, 19.050034, 0.77152634, -9.399321)
+transform = Transform3D(-0.7272288, 0, 0.68639505, 0, 1, 0, -0.68639505, 0, -0.7272288, 19.050034, 0.33486032, -9.399321)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (21)" parent="StaticBody3D/Mesh" unique_id=1688933902 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-0.41786936, 0, -0.90850765, 0, 1, 0, 0.90850765, 0, -0.41786936, -7.8451004, 0.77152634, -4.8033695)
+transform = Transform3D(-0.41786936, 0, -0.90850765, 0, 1, 0, 0.90850765, 0, -0.41786936, -7.8451004, 0.33486032, -4.8033695)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (22)" parent="StaticBody3D/Mesh" unique_id=2048247175 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, -14.659673, 0.77152634, 16.751005)
+transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, -14.659673, 0.33486032, 16.751005)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (23)" parent="StaticBody3D/Mesh" unique_id=1298595794 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, -8.916967, 0.77152634, 23.266571)
+transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, -8.916967, 0.33486032, 23.266571)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (24)" parent="StaticBody3D/Mesh" unique_id=612513883 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, 19.954311, 0.77152824, 6.1194324)
+transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, 19.954311, 0.33486223, 6.1194324)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (25)" parent="StaticBody3D/Mesh" unique_id=260963810 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, 24.765759, 0.77152634, 0.701437)
+transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, 24.765759, 0.33486032, 0.701437)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (26)" parent="StaticBody3D/Mesh" unique_id=2070400731 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, 26.009506, 0.77152634, -4.6991405)
+transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, 26.009506, 0.33486032, -4.6991405)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (27)" parent="StaticBody3D/Mesh" unique_id=689920485 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, 23.854698, 0.77152824, -13.281572)
+transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, 23.854698, 0.33486223, -13.281572)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (28)" parent="StaticBody3D/Mesh" unique_id=562025856 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, 19.3724, 0.77152634, -14.097914)
+transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, 19.3724, 0.33486032, -14.097914)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (29)" parent="StaticBody3D/Mesh" unique_id=2132347863 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, 6.541974, 0.7715244, -14.896318)
+transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, 6.541974, 0.33485842, -14.896318)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (31)" parent="StaticBody3D/Mesh" unique_id=1522091161 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, -5.7063484, 0.77152634, -5.3961086)
+transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, -5.7063484, 0.33486032, -5.3961086)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (32)" parent="StaticBody3D/Mesh" unique_id=1012030112 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, -7.3308315, 0.7715244, -0.010690689)
+transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, -7.3308315, 0.33485842, -0.010690689)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (33)" parent="StaticBody3D/Mesh" unique_id=1377374113 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, -7.86932, 0.77152634, 5.444515)
+transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, -7.86932, 0.33486032, 5.444515)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (34)" parent="StaticBody3D/Mesh" unique_id=55621460 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, 15.757937, 0.7715244, 9.355709)
+transform = Transform3D(0.427356, 0, -0.9040842, 0, 1, 0, 0.9040842, 0, 0.427356, 15.757937, 0.33485842, 9.355709)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (35)" parent="StaticBody3D/Mesh" unique_id=391037539 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(5.963153, 0, 0, 0, 5.963153, 0, 0, 0, 5.963153, -2.0462885, 0.7715254, -26.028019)
+transform = Transform3D(5.963153, 0, 0, 0, 5.963153, 0, 0, 0, 5.963153, -2.0462885, 0.33485937, -26.028019)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (36)" parent="StaticBody3D/Mesh" unique_id=1400123081 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(5.1642437, 0, 2.981577, 0, 5.963153, 0, -2.981577, 0, 5.1642437, 12.991405, 0.7715273, 20.223007)
+transform = Transform3D(5.1642437, 0, 2.981577, 0, 5.963153, 0, -2.981577, 0, 5.1642437, 12.991405, 0.33486128, 20.223007)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (37)" parent="StaticBody3D/Mesh" unique_id=256654407 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-2.682209e-06, 0, 5.963165, 0, 5.963153, 0, -5.963165, 0, -2.682209e-06, -20.93385, 0.77152634, -0.6747594)
+transform = Transform3D(-2.682209e-06, 0, 5.963165, 0, 5.963153, 0, -5.963165, 0, -2.682209e-06, -20.93385, 0.33486032, -0.6747594)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (38)" parent="StaticBody3D/Mesh" unique_id=1852048826 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-3.3989112, 0, -1.3235849e-06, 0, 3.3989031, 0, 1.3235849e-06, 0, -3.3989112, 17.792568, 0.77152634, -21.840254)
+transform = Transform3D(-3.3989112, 0, -1.3235849e-06, 0, 3.3989031, 0, 1.3235849e-06, 0, -3.3989112, 17.792568, 0.33486032, -21.840254)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (39)" parent="StaticBody3D/Mesh" unique_id=632150510 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.5902183, 0, -3.3472779, 0, 3.3989031, 0, 3.3472779, 0, 0.5902183, 32.197697, 0.7715225, -11.731943)
+transform = Transform3D(0.5902183, 0, -3.3472779, 0, 3.3989031, 0, 3.3472779, 0, 0.5902183, 32.197697, 0.3348565, -11.731943)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (40)" parent="StaticBody3D/Mesh" unique_id=68926180 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(0.5902183, 0, -3.3472779, 0, 3.3989031, 0, 3.3472779, 0, 0.5902183, 30.674404, 0.77152634, 1.8077946)
+transform = Transform3D(0.5902183, 0, -3.3472779, 0, 3.3989031, 0, 3.3472779, 0, 0.5902183, 30.674404, 0.33486032, 1.8077946)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (41)" parent="StaticBody3D/Mesh" unique_id=1708448944 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-1.6994555, 0, -2.9435492, 0, 3.3989031, 0, 2.9435492, 0, -1.6994555, 25.701649, 0.77152634, 10.361967)
+transform = Transform3D(-1.6994555, 0, -2.9435492, 0, 3.3989031, 0, 2.9435492, 0, -1.6994555, 25.701649, 0.33486032, 10.361967)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (42)" parent="StaticBody3D/Mesh" unique_id=45171877 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-3.1939394, 0, 1.1624956, 0, 3.3989031, 0, -1.1624956, 0, -3.1939394, -12.767222, 0.7715225, 24.296556)
+transform = Transform3D(-3.1939394, 0, 1.1624956, 0, 3.3989031, 0, -1.1624956, 0, -3.1939394, -12.767222, 0.3348565, 24.296556)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (43)" parent="StaticBody3D/Mesh" unique_id=832530902 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-3.1939394, 0, 1.1624956, 0, 3.3989031, 0, -1.1624956, 0, -3.1939394, -27.882496, 0.77152634, 24.605925)
+transform = Transform3D(-3.1939394, 0, 1.1624956, 0, 3.3989031, 0, -1.1624956, 0, -3.1939394, -27.882496, 0.33486032, 24.605925)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (44)" parent="StaticBody3D/Mesh" unique_id=584650390 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-3.1939394, 0, 1.1624956, 0, 3.3989031, 0, -1.1624956, 0, -3.1939394, -32.71976, 0.77153015, 18.60895)
+transform = Transform3D(-3.1939394, 0, 1.1624956, 0, 3.3989031, 0, -1.1624956, 0, -3.1939394, -32.71976, 0.33486414, 18.60895)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (45)" parent="StaticBody3D/Mesh" unique_id=879467140 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-3.1939394, 0, 1.1624956, 0, 3.3989031, 0, -1.1624956, 0, -3.1939394, -34.267086, 0.77152634, -11.320753)
+transform = Transform3D(-3.1939394, 0, 1.1624956, 0, 3.3989031, 0, -1.1624956, 0, -3.1939394, -34.267086, 0.33486032, -11.320753)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"
 
 [node name="Sketchfab_Scene (46)" parent="StaticBody3D/Mesh" unique_id=1696024293 instance=ExtResource("5_6ntpl")]
-transform = Transform3D(-3.1939394, 0, 1.1624956, 0, 3.3989031, 0, -1.1624956, 0, -3.1939394, -20.338074, 0.77152634, -26.55587)
+transform = Transform3D(-3.1939394, 0, 1.1624956, 0, 3.3989031, 0, -1.1624956, 0, -3.1939394, -20.338074, 0.33486032, -26.55587)
 metadata/asset_placer_res_id = "uid://b62gv8hqf72no"

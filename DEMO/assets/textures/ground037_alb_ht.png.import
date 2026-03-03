@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddprscrpsofah"
-path.bptc="res://.godot/imported/ground037_alb_ht.png-d854c3c88beba9927351b95063edffa2.bptc.ctex"
+path.bptc="res://.godot/imported/ground037_alb_ht.png-bbc6b6a694c62df4d6c91aa487fea813.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://demo/assets/textures/ground037_alb_ht.png"
-dest_files=["res://.godot/imported/ground037_alb_ht.png-d854c3c88beba9927351b95063edffa2.bptc.ctex"]
+source_file="res://DEMO/assets/textures/ground037_alb_ht.png"
+dest_files=["res://.godot/imported/ground037_alb_ht.png-bbc6b6a694c62df4d6c91aa487fea813.bptc.ctex"]
 
 [params]
 

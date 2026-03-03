@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bxwiqxgwoh630"
-path="res://.godot/imported/RockA.glb-2e416adf16cd89c5c5afc8e204027147.scn"
+path="res://.godot/imported/RockA.glb-0d4d84e24cc147722380262dce2a6386.scn"
 
 [deps]
 
-source_file="res://demo/assets/models/RockA.glb"
-dest_files=["res://.godot/imported/RockA.glb-2e416adf16cd89c5c5afc8e204027147.scn"]
+source_file="res://DEMO/assets/models/RockA.glb"
+dest_files=["res://.godot/imported/RockA.glb-0d4d84e24cc147722380262dce2a6386.scn"]
 
 [params]
 
