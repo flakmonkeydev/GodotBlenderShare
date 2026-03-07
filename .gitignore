@@ -15,3 +15,4 @@ export_credentials.cfg
 data_*/
 mono_crash.*.json
 *.blend1
+/no_upload
