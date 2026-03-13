@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://bkndb03caxb3v"]
+
+[ext_resource type="Script" uid="uid://byjdn0hs01to3" path="res://FREE_HERE/dr_stone_effect/dr_stone_effect.gd" id="1_8tv5e"]
+[ext_resource type="PackedScene" uid="uid://prh35jb6tjtd" path="res://model/godot-4-3D-Characters-main/gdquest_sophia/sophia_skin.tscn" id="2_h8183"]
+[ext_resource type="Texture2D" uid="uid://cttwgqb8m23d6" path="res://example/sky/autumn_field_puresky_1k.exr" id="2_nphi7"]
+[ext_resource type="Material" uid="uid://b0wk7bmlak44m" path="res://FREE_HERE/dr_stone_effect/mat_dr_stone_effect.tres" id="3_7jsd2"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vuy41"]
+panorama = ExtResource("2_nphi7")
+
+[sub_resource type="Sky" id="Sky_ep0xt"]
+sky_material = SubResource("PanoramaSkyMaterial_vuy41")
+
+[sub_resource type="Environment" id="Environment_p7dkn"]
+background_mode = 2
+sky = SubResource("Sky_ep0xt")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="DrStoneEffect" type="Node3D" unique_id=1795303227 node_paths=PackedStringArray("character")]
+script = ExtResource("1_8tv5e")
+character = NodePath("SophiaSkin")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=861574694]
+environment = SubResource("Environment_p7dkn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=135398842]
+transform = Transform3D(0.9979257, -0.05575081, 0.032187715, 0.02276984, 0.77335954, 0.63355863, -0.060214065, -0.6315115, 0.77302486, 0, 0, 0)
+shadow_enabled = true
+
+[node name="SophiaSkin" parent="." unique_id=1998844448 node_paths=PackedStringArray("animation_tree") instance=ExtResource("2_h8183")]
+animation_tree = NodePath("AnimationTree")
+
+[node name="Skeleton3D" parent="SophiaSkin/sophia/rig" parent_id_path=PackedInt32Array(1998844448, 1301638392, 456283972) index="0" unique_id=1015101563]
+bones/0/position = Vector3(0, 0.39923015, -0.03963052)
+bones/2/rotation = Quaternion(-0.077436715, 0.016174486, -0.0002262739, 0.99686605)
+bones/3/rotation = Quaternion(-0.0016454313, 0.048411623, 0.0011080096, 0.99882555)
+bones/4/rotation = Quaternion(0.043560736, -0.032297675, 0.0002729918, 0.99852854)
+bones/6/rotation = Quaternion(-0.05340583, -0.031423397, -0.007467945, 0.9980504)
+bones/7/rotation = Quaternion(0.96124125, 0.27570483, 0.0015052235, 7.4409014e-05)
+bones/8/rotation = Quaternion(0.98627293, -0.16511704, -0.0015039734, -9.6472344e-05)
+bones/15/rotation = Quaternion(-0.3331445, -0.13944092, -0.5131921, 0.77859163)
+bones/16/rotation = Quaternion(4.281892e-08, 1.3269057e-07, 0.104195274, 0.99455696)
+bones/17/rotation = Quaternion(-0.3331445, 0.13944092, 0.5131921, 0.77859163)
+bones/18/rotation = Quaternion(4.6343143e-08, -1.3864128e-07, -0.104195274, 0.99455696)
+bones/19/rotation = Quaternion(-0.4022554, -0.086406246, -0.15635261, 0.8979301)
+bones/20/rotation = Quaternion(-2.1092357e-07, -4.5807808e-10, 0.104195185, 0.99455696)
+bones/21/rotation = Quaternion(-0.4022554, 0.08640624, 0.15635262, 0.8979301)
+bones/22/rotation = Quaternion(-2.172063e-07, -9.932064e-09, -0.104195155, 0.99455696)
+bones/24/rotation = Quaternion(-0.23667747, 0.6991453, -0.23267935, 0.6332772)
+bones/25/rotation = Quaternion(1.7054275e-07, 0.019179596, -2.2765961e-07, 0.9998161)
+bones/26/rotation = Quaternion(0.069580756, 0.01918032, -0.0013212578, 0.99739105)
+bones/49/rotation = Quaternion(-0.111178495, -0.6766771, 0.3679798, 0.62796366)
+bones/50/rotation = Quaternion(8.562861e-08, 0.0056722653, -1.41248995e-08, 0.99998397)
+bones/51/rotation = Quaternion(0.6524252, 0.0056726527, -0.0049081314, 0.757816)
+bones/76/rotation = Quaternion(0.87120426, 9.025265e-09, -1.363272e-08, -0.49092066)
+bones/77/rotation = Quaternion(-0.16831191, -0.001918574, 0.017732643, 0.9855724)
+bones/78/rotation = Quaternion(-0.16047272, -0.0049943533, 0.049581252, 0.9857816)
+bones/81/rotation = Quaternion(0.7325886, 0.0054211547, -0.032714956, 0.6798635)
+bones/82/position = Vector3(6.116364e-09, 0.09238599, -4.7090893e-08)
+bones/82/rotation = Quaternion(1.08760936e-07, -0.0037462756, -2.904657e-09, 0.9999931)
+bones/83/position = Vector3(3.1755265e-09, 0.09238596, -3.7681516e-09)
+bones/83/rotation = Quaternion(0.7727041, -0.0037542454, 0.004466493, 0.63473964)
+bones/84/position = Vector3(-7.4402005e-09, 0.09057769, 3.867105e-09)
+bones/84/rotation = Quaternion(-4.4839594e-09, 0.005831419, 2.5856102e-09, 0.999983)
+bones/85/position = Vector3(2.6108564e-09, 0.09057774, -3.398526e-09)
+bones/85/rotation = Quaternion(-0.8071951, 0.03615215, -0.008882574, 0.5891096)
+bones/86/rotation = Quaternion(-2.5102456e-06, 0.95413804, -0.29936698, 1.4581879e-06)
+bones/87/rotation = Quaternion(0.8178368, -0.011097716, 0.0362059, 0.5742028)
+bones/88/position = Vector3(7.078233e-09, 0.092917584, -3.508049e-08)
+bones/88/rotation = Quaternion(2.4259284e-08, 9.0555135e-05, -1.2802331e-09, 1)
+bones/89/position = Vector3(-4.7715907e-09, 0.092917494, 8.8103036e-08)
+bones/89/rotation = Quaternion(0.95431185, 8.675186e-05, -0.0011824175, 0.29881045)
+bones/90/position = Vector3(2.4134941e-08, 0.09031459, 6.2580776e-09)
+bones/90/rotation = Quaternion(-1.5772262e-07, 0.012544685, -5.3267883e-09, 0.9999214)
+bones/91/position = Vector3(1.4821762e-09, 0.09031462, 1.7576784e-08)
+bones/91/rotation = Quaternion(-0.41886345, -0.023831675, 0.030317554, 0.90723)
+
+[node name="Sophia" parent="SophiaSkin/sophia/rig/Skeleton3D" index="0" unique_id=1264402662]
+material_overlay = ExtResource("3_7jsd2")
+instance_shader_parameters/dissolve_amount = 1.0
+instance_shader_parameters/edge_mode = 0
+surface_material_override/1 = null
+surface_material_override/2 = null
+
+[editable path="SophiaSkin"]
+[editable path="SophiaSkin/sophia"]

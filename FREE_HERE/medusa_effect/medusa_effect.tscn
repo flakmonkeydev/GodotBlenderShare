@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://bkndb03caxb3v"]
-
-[ext_resource type="Script" uid="uid://byjdn0hs01to3" path="res://FREE_HERE/medusa_effect/medusa_effect.gd" id="1_h7knm"]
-
-[node name="MedusaEffect" type="Node3D" unique_id=1795303227]
-script = ExtResource("1_h7knm")
