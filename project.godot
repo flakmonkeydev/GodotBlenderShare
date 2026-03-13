@@ -21,7 +21,7 @@ window/size/viewport_height=480
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/asset_placer/plugin.cfg", "res://addons/voronoishatter/plugin.cfg")
+enabled=PackedStringArray("res://addons/asset_placer/plugin.cfg")
 
 [file_customization]
 
