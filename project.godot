@@ -16,8 +16,13 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=860
-window/size/viewport_height=480
+window/size/mode=3
+
+[editor]
+
+movie_writer/movie_file="D:/movie.avi"
+movie_writer/disable_vsync=true
+movie_writer/fps=30
 
 [editor_plugins]
 

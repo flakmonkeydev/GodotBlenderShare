@@ -22,7 +22,7 @@ uniform float max_height = 2.0;
 
 group_uniforms Edge_Settings;
 instance uniform int edge_mode : hint_enum("No Edge,With Edge") = 1;
-uniform vec4 edge_color : source_color = vec4(1.0, 0.4, 0.0, 1.0);
+instance uniform vec4 edge_color : source_color = vec4(1.0, 0.4, 0.0, 1.0);
 uniform float edge_thickness : hint_range(0.0, 0.2) = 0.05;
 uniform float edge_emission_intensity = 3.0;
 
