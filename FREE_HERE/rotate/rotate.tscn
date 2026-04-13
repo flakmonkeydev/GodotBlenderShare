@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://fdgohcnwbrly"]
+
+[ext_resource type="Texture2D" uid="uid://danf25ug3ky4v" path="res://no_upload/resource/texture/sky_22_2k.png" id="1_8ipp6"]
+[ext_resource type="ArrayMesh" uid="uid://bkea0f1vkcjjc" path="res://FREE_HERE/shield_1/mesh_shield_1.obj" id="2_a6pji"]
+[ext_resource type="Shader" uid="uid://cm6vn5ypn7bfw" path="res://FREE_HERE/rotate/rotate.tres" id="3_7ik83"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rr7uq"]
+panorama = ExtResource("1_8ipp6")
+
+[sub_resource type="Sky" id="Sky_sssco"]
+sky_material = SubResource("PanoramaSkyMaterial_rr7uq")
+
+[sub_resource type="Environment" id="Environment_gdua0"]
+background_mode = 2
+sky = SubResource("Sky_sssco")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6j8v"]
+render_priority = 0
+shader = ExtResource("3_7ik83")
+shader_parameter/rotate_speed = 1.0
+shader_parameter/rotate_direction = Vector3(1, -1, 1)
+shader_parameter/color = Color(1, 0.843137, 0, 1)
+shader_parameter/metallic = 1.0
+shader_parameter/roughness = 0.45
+
+[node name="Rotate" type="Node3D" unique_id=1014338391]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1797923342]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 3.1059046, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1073059670]
+environment = SubResource("Environment_gdua0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=12248500]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("2_a6pji")
+surface_material_override/0 = SubResource("ShaderMaterial_g6j8v")

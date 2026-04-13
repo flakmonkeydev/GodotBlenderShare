@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://o7b6g2p8bh8s"]
+
+[ext_resource type="PackedScene" uid="uid://cecr11m4v80r2" path="res://no_upload/enemy_1.glb" id="1_nt0gj"]
+[ext_resource type="Shader" uid="uid://bhsn7c82vy1u2" path="res://no_upload/resource/shader/shader_model.gdshader" id="2_kbyga"]
+[ext_resource type="Shader" uid="uid://ciqlxbcwhatq6" path="res://FREE_HERE/stencil_xray/xray.gdshader" id="2_rrrnk"]
+[ext_resource type="Texture2D" uid="uid://btl43d0diimyr" path="res://texture/ground/floor_tiles_20_1k/floor_tiles_20_1k/floor_tiles_20_basecolor_1k.png" id="3_qa437"]
+[ext_resource type="Texture2D" uid="uid://so6hno6iwttj" path="res://texture/attribute.png" id="4_fg0jo"]
+[ext_resource type="Texture2D" uid="uid://4h6pqvuoi0u7" path="res://texture/ground/floor_tiles_20_1k/floor_tiles_20_1k/floor_tiles_20_metallic_1k.png" id="4_mhxue"]
+[ext_resource type="Texture2D" uid="uid://b2f7c8jhbitn6" path="res://texture/ground/floor_tiles_20_1k/floor_tiles_20_1k/floor_tiles_20_normal_gl_1k.png" id="5_rrrnk"]
+[ext_resource type="Texture2D" uid="uid://bctqqivuy1dcy" path="res://no_upload/resource/texture/albedo.png" id="5_xafuv"]
+[ext_resource type="Texture2D" uid="uid://dc47d1dmilk7g" path="res://texture/ground/floor_tiles_20_1k/floor_tiles_20_1k/floor_tiles_20_roughness_1k.png" id="6_fg0jo"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://dr5j51n7yy4i4" path="res://no_upload/resource/texture/texture_noise.png" id="6_rjrdo"]
+[ext_resource type="ArrayMesh" uid="uid://bkea0f1vkcjjc" path="res://FREE_HERE/shield_1/mesh_shield_1.obj" id="7_xafuv"]
+[ext_resource type="Material" uid="uid://do70tykhdv0ne" path="res://FREE_HERE/shield_1/material_shield_1.tres" id="8_rjrdo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_txkby"]
+render_priority = 0
+shader = ExtResource("2_rrrnk")
+shader_parameter/base_color = Color(0, 0.9, 1, 1)
+shader_parameter/rim_power = 5.0
+shader_parameter/chromatic_offset = 0.08
+shader_parameter/glitch_intensity = 0.0
+shader_parameter/scanline_count = 400.0
+shader_parameter/noise_amount = 0.15
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n2opu"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_txkby")
+shader = ExtResource("2_kbyga")
+shader_parameter/attribute_texture = ExtResource("5_xafuv")
+shader_parameter/albedo_texture = ExtResource("4_fg0jo")
+shader_parameter/emission_strength = 1.25
+shader_parameter/flash_fresnel_power = 2.5
+shader_parameter/noise_texture = ExtResource("6_rjrdo")
+shader_parameter/dissolve_center_uv = Vector2(0.5, 0.5)
+shader_parameter/noise_pan_speed = Vector2(0.1, 0.05)
+shader_parameter/noise_influence = 0.5
+shader_parameter/edge_width = 0.1
+shader_parameter/edge_color = Color(0, 1, 0.8, 1)
+shader_parameter/edge_intensity = 5.0
+shader_parameter/glitch_speed = 5.0
+shader_parameter/color_shift_amount = 0.02
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_txkby"]
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sirm3"]
+albedo_texture = ExtResource("3_qa437")
+metallic = 1.0
+metallic_texture = ExtResource("4_mhxue")
+roughness_texture = ExtResource("6_fg0jo")
+normal_enabled = true
+normal_scale = 9.99
+normal_texture = ExtResource("5_rrrnk")
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rrrnk"]
+albedo_color = Color(0.7215869, 0.37807325, 0, 1)
+metallic = 1.0
+roughness = 0.42
+
+[node name="Xray" type="Node3D" unique_id=181158633]
+
+[node name="enemy_1" parent="." unique_id=612682017 instance=ExtResource("1_nt0gj")]
+
+[node name="body" parent="enemy_1/metarig/Skeleton3D" parent_id_path=PackedInt32Array(612682017, 751054779) index="3" unique_id=114108634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.14598322)
+instance_shader_parameters/uv_layer = 1
+surface_material_override/0 = SubResource("ShaderMaterial_n2opu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1378377651]
+mesh = SubResource("PlaneMesh_txkby")
+surface_material_override/0 = SubResource("StandardMaterial3D_sirm3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=66719220]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3026037, 1.3490348, 1.9894357)
+mesh = ExtResource("7_xafuv")
+surface_material_override/0 = ExtResource("8_rjrdo")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=551978086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23408318, 1.3490348, 1.9894357)
+mesh = ExtResource("7_xafuv")
+surface_material_override/0 = SubResource("StandardMaterial3D_rrrnk")
+
+[editable path="enemy_1"]
