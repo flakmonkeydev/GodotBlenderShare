@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmqb47d1s16ir"
-path="res://.godot/imported/sky_17_2k.png-fae3b94019fda7562446999d1e8fa7cc.ctex"
+uid="uid://vh0cd7q5tlv2"
+path="res://.godot/imported/cliff_rocks_05_ambientocclusion_1k.png-888fa00c26ec6738600bf97a1a929ed0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/sky/sky_17_2k.png"
-dest_files=["res://.godot/imported/sky_17_2k.png-fae3b94019fda7562446999d1e8fa7cc.ctex"]
+source_file="res://FREE_HERE/dr_stone_effect/rock_texture/cliff_rocks_05_ambientocclusion_1k.png"
+dest_files=["res://.godot/imported/cliff_rocks_05_ambientocclusion_1k.png-888fa00c26ec6738600bf97a1a929ed0.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

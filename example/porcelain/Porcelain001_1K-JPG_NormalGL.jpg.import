@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmqb47d1s16ir"
-path="res://.godot/imported/sky_17_2k.png-fae3b94019fda7562446999d1e8fa7cc.ctex"
+uid="uid://d2wmjyxq50u42"
+path="res://.godot/imported/Porcelain001_1K-JPG_NormalGL.jpg-284ddab70d1e76e236f309b6b7457b2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/sky/sky_17_2k.png"
-dest_files=["res://.godot/imported/sky_17_2k.png-fae3b94019fda7562446999d1e8fa7cc.ctex"]
+source_file="res://example/porcelain/Porcelain001_1K-JPG_NormalGL.jpg"
+dest_files=["res://.godot/imported/Porcelain001_1K-JPG_NormalGL.jpg-284ddab70d1e76e236f309b6b7457b2b.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

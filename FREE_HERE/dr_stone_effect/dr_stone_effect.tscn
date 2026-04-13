@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://bkndb03caxb3v"]
+
+[ext_resource type="Script" uid="uid://byjdn0hs01to3" path="res://FREE_HERE/dr_stone_effect/dr_stone_effect.gd" id="1_8tv5e"]
+[ext_resource type="PackedScene" uid="uid://prh35jb6tjtd" path="res://model/godot-4-3D-Characters-main/gdquest_sophia/sophia_skin.tscn" id="2_h8183"]
+[ext_resource type="Texture2D" uid="uid://cu0vb555aepxt" path="res://texture/sky/sky_29_2k.png" id="2_nphi7"]
+[ext_resource type="Material" uid="uid://b0wk7bmlak44m" path="res://FREE_HERE/dr_stone_effect/mat_dr_stone_effect.tres" id="3_7jsd2"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vuy41"]
+panorama = ExtResource("2_nphi7")
+energy_multiplier = 0.5
+
+[sub_resource type="Sky" id="Sky_ep0xt"]
+sky_material = SubResource("PanoramaSkyMaterial_vuy41")
+
+[sub_resource type="Environment" id="Environment_p7dkn"]
+background_mode = 2
+sky = SubResource("Sky_ep0xt")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="DrStoneEffect" type="Node3D" unique_id=1795303227 node_paths=PackedStringArray("character")]
+script = ExtResource("1_8tv5e")
+character = NodePath("SophiaSkin")
+
+[node name="Control" type="Control" parent="." unique_id=1270165814]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=838038753]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=601141598]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 25
+
+[node name="ButtonState" type="Button" parent="Control/MarginContainer/HBoxContainer" unique_id=1024313446]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+text = "Is Idle"
+
+[node name="ButtonEdge" type="Button" parent="Control/MarginContainer/HBoxContainer" unique_id=90655196]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+text = "Effect Edge"
+
+[node name="ButtonEffect" type="Button" parent="Control/MarginContainer/HBoxContainer" unique_id=718935996]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+text = "Start Effect"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=861574694]
+environment = SubResource("Environment_p7dkn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=135398842]
+transform = Transform3D(0.9979257, -0.05575081, 0.032187715, 0.02276984, 0.77335954, 0.63355863, -0.060214065, -0.6315115, 0.77302486, 0, 0, 0)
+light_energy = 0.75
+shadow_enabled = true
+
+[node name="SophiaSkin" parent="." unique_id=1998844448 node_paths=PackedStringArray("animation_tree") instance=ExtResource("2_h8183")]
+animation_tree = NodePath("AnimationTree")
+
+[node name="Skeleton3D" parent="SophiaSkin/sophia/rig" parent_id_path=PackedInt32Array(1998844448, 1301638392, 456283972) index="0" unique_id=1015101563]
+bones/0/position = Vector3(0, 0.6705257, -0.039630517)
+bones/2/rotation = Quaternion(-0.07735072, 0.033303212, -0.00046763214, 0.99644744)
+bones/3/rotation = Quaternion(-0.0015857262, 0.09956748, 0.002279392, 0.99502695)
+bones/4/rotation = Quaternion(0.043486577, -0.0664731, 0.00056171813, 0.99684006)
+bones/6/rotation = Quaternion(-0.105816334, -0.0638014, -0.018666508, 0.9921612)
+bones/7/rotation = Quaternion(0.9957106, 0.09250997, 0.0014928892, -0.00020620145)
+bones/8/rotation = Quaternion(0.99978256, 0.020802274, -0.00145995, -0.00037391827)
+bones/15/rotation = Quaternion(-0.35013154, -0.08852625, -0.39213097, 0.8460523)
+bones/16/rotation = Quaternion(7.593889e-08, 7.4248874e-08, -0.076564096, 0.99706465)
+bones/17/rotation = Quaternion(-0.35013157, 0.08852624, 0.39213088, 0.84605217)
+bones/18/rotation = Quaternion(6.930742e-08, -6.902545e-08, 0.07656407, 0.99706465)
+bones/19/rotation = Quaternion(-0.41061908, -0.025834493, -0.021545418, 0.9111862)
+bones/20/rotation = Quaternion(-2.0360815e-07, -4.0210534e-08, -0.076564156, 0.99706465)
+bones/21/rotation = Quaternion(-0.41061908, 0.025834491, 0.021545418, 0.9111862)
+bones/22/rotation = Quaternion(-2.0161113e-07, 4.001537e-08, 0.076564156, 0.99706465)
+bones/24/rotation = Quaternion(-0.2791211, 0.7020373, -0.17574668, 0.63114846)
+bones/25/rotation = Quaternion(7.263184e-08, 0.028807502, 5.767015e-09, 0.99958503)
+bones/26/rotation = Quaternion(0.23960617, 0.028827736, -0.0070553124, 0.97041655)
+bones/49/rotation = Quaternion(-0.0587986, -0.6625882, 0.413368, 0.6218091)
+bones/50/rotation = Quaternion(-5.642278e-08, 0.0151558425, 3.4045425e-07, 0.99988514)
+bones/51/rotation = Quaternion(0.51267034, 0.015166362, -0.0091439765, 0.8584029)
+bones/76/rotation = Quaternion(0.9351989, 1.4182243e-08, -2.8269621e-08, -0.35412282)
+bones/77/rotation = Quaternion(0.06296071, 0.0061515607, 0.04954521, 0.99676645)
+bones/78/rotation = Quaternion(0.087434486, 0.0032251691, 0.021044923, 0.9959428)
+bones/81/rotation = Quaternion(0.86367357, -0.021979164, -0.032024764, 0.5025528)
+bones/82/position = Vector3(-3.72206e-09, 0.12012141, -3.4333155e-08)
+bones/82/rotation = Quaternion(4.588504e-08, -0.00086347037, -4.4783902e-10, 0.99999964)
+bones/83/position = Vector3(7.344054e-10, 0.12012132, 4.201464e-09)
+bones/83/rotation = Quaternion(4.910685e-05, -0.00086316635, 9.7569014e-08, 0.99999964)
+bones/84/position = Vector3(1.3988754e-08, 0.11844886, -8.4644526e-08)
+bones/84/rotation = Quaternion(-8.541836e-09, 0.0007132737, 1.9286266e-09, 0.9999998)
+bones/85/position = Vector3(-1.1146103e-08, 0.118448846, 3.0384356e-08)
+bones/85/rotation = Quaternion(-0.513675, 0.035766885, 0.018070245, 0.8570485)
+bones/86/rotation = Quaternion(9.980923e-07, 0.9540734, -0.29957294, 3.7724598e-07)
+bones/87/rotation = Quaternion(0.9989577, -0.0085208025, 0.038892027, -0.022325926)
+bones/88/position = Vector3(-9.02754e-09, 0.09414372, 4.0767624e-08)
+bones/88/rotation = Quaternion(6.990894e-08, -0.0022254926, -1.2853426e-09, 0.9999976)
+bones/89/position = Vector3(6.3942345e-09, 0.09414367, -5.4965227e-08)
+bones/89/rotation = Quaternion(0.325281, -0.0022258435, 0.00076644856, 0.9456145)
+bones/90/position = Vector3(1.0657039e-08, 0.09245003, -1.0597288e-07)
+bones/90/rotation = Quaternion(-1.1807409e-07, 0.003192761, -7.509022e-09, 0.999995)
+bones/91/position = Vector3(-1.624711e-09, 0.09245006, 1.5297246e-08)
+bones/91/rotation = Quaternion(-0.032372743, -0.035250068, 0.014069369, 0.99875504)
+
+[node name="Sophia" parent="SophiaSkin/sophia/rig/Skeleton3D" index="0" unique_id=1264402662]
+material_overlay = ExtResource("3_7jsd2")
+instance_shader_parameters/dissolve_amount = 1.0
+instance_shader_parameters/edge_color = Color(0, 2.454227, 0, 1)
+instance_shader_parameters/edge_mode = 0
+surface_material_override/1 = null
+surface_material_override/2 = null
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=871430659]
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 2.2328606, 5)
+fov = 45.0
+
+[connection signal="toggled" from="Control/MarginContainer/HBoxContainer/ButtonState" to="." method="_on_button_state_toggled"]
+[connection signal="toggled" from="Control/MarginContainer/HBoxContainer/ButtonEdge" to="." method="_on_button_edge_toggled"]
+[connection signal="toggled" from="Control/MarginContainer/HBoxContainer/ButtonEffect" to="." method="_on_button_effect_toggled"]
+
+[editable path="SophiaSkin"]
+[editable path="SophiaSkin/sophia"]

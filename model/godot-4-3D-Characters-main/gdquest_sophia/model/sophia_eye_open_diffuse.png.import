@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmqb47d1s16ir"
-path="res://.godot/imported/sky_17_2k.png-fae3b94019fda7562446999d1e8fa7cc.ctex"
+uid="uid://bqj7x6pcb73iy"
+path="res://.godot/imported/sophia_eye_open_diffuse.png-253ec4241267365af1171e3b6675cfdc.ctex"
 metadata={
 "vram_texture": false
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://texture/sky/sky_17_2k.png"
-dest_files=["res://.godot/imported/sky_17_2k.png-fae3b94019fda7562446999d1e8fa7cc.ctex"]
+source_file="res://model/godot-4-3D-Characters-main/gdquest_sophia/model/sophia_eye_open_diffuse.png"
+dest_files=["res://.godot/imported/sophia_eye_open_diffuse.png-253ec4241267365af1171e3b6675cfdc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -23,7 +24,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

@@ -23,18 +23,17 @@ func _disintegrate(val: bool) -> void:
 			var tween = create_tween().set_parallel(true)
 			if val:
 				tween.tween_property(mesh, "instance_shader_parameters/dissolve_amount", 1.1, duration).set_ease(Tween.EASE_OUT)
-				tween.tween_property(mesh, "instance_shader_parameters/outline_active", false, 0.05).set_ease(Tween.EASE_OUT)
+				#tween.tween_property(mesh, "instance_shader_parameters/outline_active", false, 0.05).set_ease(Tween.EASE_OUT)
 				for particle in particles:
-					tween.tween_property(particle, "visible", true, 0.05).set_delay(delay_emit_time)
-					tween.tween_property(particle, "emitting", true, 0.05).set_delay(delay_emit_time)
-
+					print(particle)
+					particle.emitting = true
 			else:
 				tween.tween_property(mesh, "instance_shader_parameters/dissolve_amount", -0.1, 0.1)
-				tween.tween_property(mesh, "instance_shader_parameters/outline_active", true, 0.05).set_ease(Tween.EASE_OUT)
+				#tween.tween_property(mesh, "instance_shader_parameters/outline_active", true, 0.05).set_ease(Tween.EASE_OUT)
 				for particle in particles:
-					particle.visible = false
-					particle.restart()
 					particle.emitting = false
+					#particle.restart()
+					
 
 
 @export var glitch: bool = false:

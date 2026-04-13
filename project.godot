@@ -16,9 +16,13 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1650
-window/size/viewport_height=960
 window/size/mode=3
+
+[editor]
+
+movie_writer/movie_file="D:/movie.avi"
+movie_writer/disable_vsync=true
+movie_writer/fps=30
 
 [editor_plugins]
 
@@ -34,6 +38,14 @@ folder_colors={
 [filesystem]
 
 import/blender/enabled=false
+
+[input]
+
+action={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [physics]
 

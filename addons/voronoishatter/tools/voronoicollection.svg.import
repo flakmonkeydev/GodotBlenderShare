@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmqb47d1s16ir"
-path="res://.godot/imported/sky_17_2k.png-fae3b94019fda7562446999d1e8fa7cc.ctex"
+uid="uid://d3t3503wmsl6u"
+path="res://.godot/imported/voronoicollection.svg-da84ce0d88770e57a0603d0449c83bbb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/sky/sky_17_2k.png"
-dest_files=["res://.godot/imported/sky_17_2k.png-fae3b94019fda7562446999d1e8fa7cc.ctex"]
+source_file="res://addons/voronoishatter/tools/voronoicollection.svg"
+dest_files=["res://.godot/imported/voronoicollection.svg-da84ce0d88770e57a0603d0449c83bbb.ctex"]
 
 [params]
 
@@ -37,4 +37,7 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmqb47d1s16ir"
-path="res://.godot/imported/sky_17_2k.png-fae3b94019fda7562446999d1e8fa7cc.ctex"
+uid="uid://3d4panlm1p7q"
+path.s3tc="res://.godot/imported/Metal034_1K-JPG_Color.jpg-e030100c2f7c8cece04baac62f919bf7.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://texture/sky/sky_17_2k.png"
-dest_files=["res://.godot/imported/sky_17_2k.png-fae3b94019fda7562446999d1e8fa7cc.ctex"]
+source_file="res://example/gold/Metal034_1K-JPG_Color.jpg"
+dest_files=["res://.godot/imported/Metal034_1K-JPG_Color.jpg-e030100c2f7c8cece04baac62f919bf7.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -23,7 +24,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
