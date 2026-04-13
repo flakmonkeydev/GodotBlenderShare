@@ -16,8 +16,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_txkby"]
 render_priority = 0
 shader = ExtResource("2_rrrnk")
-shader_parameter/base_color = Color(0, 0.9, 1, 1)
-shader_parameter/rim_power = 5.0
+shader_parameter/base_color = Color(0, 0.6015625, 1, 1)
+shader_parameter/rim_power = 1.5
 shader_parameter/chromatic_offset = 0.08
 shader_parameter/glitch_intensity = 0.0
 shader_parameter/scanline_count = 400.0
