@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texture Channel Splitter (RGBA)</title>
+    <style>
+        :root {
+            --bg-color: #121316;
+            --card-bg: #1c1e24;
+            --border-color: #2e323b;
+            --accent-color: #4f46e5;
+            --accent-hover: #4338ca;
+            --text-main: #f3f4f6;
+            --text-sub: #9ca3af;
+            --red: #ef4444;
+            --green: #22c55e;
+            --blue: #3b82f6;
+            --alpha: #a855f7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        p.desc {
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        /* Drop Zone */
+        .upload-area {
+            border: 2px dashed var(--border-color);
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: 25px;
+        }
+
+        .upload-area:hover, .upload-area.dragover {
+            border-color: var(--accent-color);
+            background-color: rgba(79, 70, 229, 0.05);
+        }
+
+        .upload-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .upload-text {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .upload-hint {
+            font-size: 12px;
+            color: var(--text-sub);
+            margin-top: 5px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--card-bg);
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            display: none; /* hidden until loaded */
+        }
+
+        .mode-toggle {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 14px;
+        }
+
+        .mode-toggle label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Output Grid */
+        .channels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .channel-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease;
+        }
+
+        .channel-header {
+            padding: 12px 15px;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tag {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .tag-r { background-color: var(--red); }
+        .tag-g { background-color: var(--green); }
+        .tag-b { background-color: var(--blue); }
+        .tag-a { background-color: var(--alpha); }
+
+        .preview-box {
+            position: relative;
+            width: 100%;
+            padding-top: 100%; /* 1:1 Aspect ratio */
+            background-image: 
+                linear-gradient(45deg, #222 25%, transparent 25%), 
+                linear-gradient(-45deg, #222 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #222 75%), 
+                linear-gradient(-45deg, transparent 75%, #222 75%);
+            background-size: 16px 16px;
+            background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+            background-color: #1a1a1a;
+        }
+
+        .preview-box canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .channel-footer {
+            padding: 12px 15px;
+            background-color: rgba(0, 0, 0, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .btn-download {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .btn-download:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Texture Channel Splitter</h1>
+            <p class="desc">Split an RGBA texture into 4 separate channels (Grayscale PBR Mask Standard)</p>
+        </header>
+
+        <!-- Drop Zone -->
+        <div class="upload-area" id="dropArea">
+            <div class="upload-icon">📂</div>
+            <div class="upload-text">Drag & drop a texture here, or click to browse</div>
+            <div class="upload-hint">Supports PNG, JPG, TGA, WebP... (PNG recommended for accurate Alpha channel)</div>
+            <input type="file" id="fileInput" accept="image/*">
+        </div>
+
+        <!-- Controls -->
+        <div class="controls" id="controls">
+            <div class="mode-toggle">
+                <span>Output Mode:</span>
+                <label>
+                    <input type="radio" name="colorMode" value="gray" checked> Grayscale (Recommended for 3D/Games)
+                </label>
+                <label>
+                    <input type="radio" name="colorMode" value="color"> Isolated Color
+                </label>
+            </div>
+            <button class="btn" id="btnDownloadAll">Download All 4 Channels (.PNG)</button>
+        </div>
+
+        <!-- Channel Cards -->
+        <div class="channels-grid" id="channelsGrid" style="display: none;">
+            <!-- Red -->
+            <div class="channel-card">
+                <div class="channel-header">
+                    <span>Red Channel</span>
+                    <span class="tag tag-r">R</span>
+                </div>
+                <div class="preview-box">
+                    <canvas id="canvasR"></canvas>
+                </div>
+                <div class="channel-footer">
+                    <button class="btn-download" onclick="downloadChannel('R')">Download Red.png</button>
+                </div>
+            </div>
+
+            <!-- Green -->
+            <div class="channel-card">
+                <div class="channel-header">
+                    <span>Green Channel</span>
+                    <span class="tag tag-g">G</span>
+                </div>
+                <div class="preview-box">
+                    <canvas id="canvasG"></canvas>
+                </div>
+                <div class="channel-footer">
+                    <button class="btn-download" onclick="downloadChannel('G')">Download Green.png</button>
+                </div>
+            </div>
+
+            <!-- Blue -->
+            <div class="channel-card">
+                <div class="channel-header">
+                    <span>Blue Channel</span>
+                    <span class="tag tag-b">B</span>
+                </div>
+                <div class="preview-box">
+                    <canvas id="canvasB"></canvas>
+                </div>
+                <div class="channel-footer">
+                    <button class="btn-download" onclick="downloadChannel('B')">Download Blue.png</button>
+                </div>
+            </div>
+
+            <!-- Alpha -->
+            <div class="channel-card">
+                <div class="channel-header">
+                    <span>Alpha (Transparency)</span>
+                    <span class="tag tag-a">A</span>
+                </div>
+                <div class="preview-box">
+                    <canvas id="canvasA"></canvas>
+                </div>
+                <div class="channel-footer">
+                    <button class="btn-download" onclick="downloadChannel('A')">Download Alpha.png</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const dropArea = document.getElementById('dropArea');
+        const fileInput = document.getElementById('fileInput');
+        const controls = document.getElementById('controls');
+        const channelsGrid = document.getElementById('channelsGrid');
+        const btnDownloadAll = document.getElementById('btnDownloadAll');
+
+        const canvases = {
+            R: document.getElementById('canvasR'),
+            G: document.getElementById('canvasG'),
+            B: document.getElementById('canvasB'),
+            A: document.getElementById('canvasA')
+        };
+
+        let currentImage = null;
+        let baseFileName = "texture";
+
+        // Click to open file dialog
+        dropArea.addEventListener('click', () => fileInput.click());
+
+        // Drag & Drop handling
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                dropArea.classList.add('dragover');
+            }, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                dropArea.classList.remove('dragover');
+            }, false);
+        });
+
+        dropArea.addEventListener('drop', (e) => {
+            const files = e.dataTransfer.files;
+            if (files.length > 0) processFile(files[0]);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) processFile(e.target.files[0]);
+        });
+
+        // Toggle Grayscale / Isolated Color mode
+        document.querySelectorAll('input[name="colorMode"]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (currentImage) splitChannels();
+            });
+        });
+
+        // Read image file
+        function processFile(file) {
+            if (!file.type.match('image.*')) {
+                alert('Please upload an image file only!');
+                return;
+            }
+
+            baseFileName = file.name.substring(0, file.name.lastIndexOf('.')) || file.name;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    currentImage = img;
+                    controls.style.display = 'flex';
+                    channelsGrid.style.display = 'grid';
+                    splitChannels();
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Split channels via 2D Canvas
+        function splitChannels() {
+            const w = currentImage.width;
+            const h = currentImage.height;
+            const isGrayscale = document.querySelector('input[name="colorMode"]:checked').value === 'gray';
+
+            // Create offscreen canvas to sample original RGBA pixel data
+            const tempCanvas = document.createElement('canvas');
+            tempCanvas.width = w;
+            tempCanvas.height = h;
+            const tempCtx = tempCanvas.getContext('2d');
+            tempCtx.drawImage(currentImage, 0, 0);
+            
+            const originalData = tempCtx.getImageData(0, 0, w, h).data;
+            const totalPixels = w * h;
+
+            // Prepare channel data
+            ['R', 'G', 'B', 'A'].forEach(channel => {
+                const cvs = canvases[channel];
+                cvs.width = w;
+                cvs.height = h;
+                const ctx = cvs.getContext('2d');
+                const imgData = ctx.createImageData(w, h);
+                const data = imgData.data;
+
+                for (let i = 0; i < totalPixels; i++) {
+                    const idx = i * 4;
+                    const r = originalData[idx];
+                    const g = originalData[idx + 1];
+                    const b = originalData[idx + 2];
+                    const a = originalData[idx + 3];
+
+                    if (isGrayscale) {
+                        // Grayscale: duplicate selected channel value across R, G, B
+                        let val = 0;
+                        if (channel === 'R') val = r;
+                        else if (channel === 'G') val = g;
+                        else if (channel === 'B') val = b;
+                        else if (channel === 'A') val = a;
+
+                        data[idx]     = val; // Red
+                        data[idx + 1] = val; // Green
+                        data[idx + 2] = val; // Blue
+                        data[idx + 3] = 255; // Fully opaque alpha for visible preview
+                    } else {
+                        // Isolated Color: preserve specific color tint
+                        if (channel === 'R') {
+                            data[idx] = r; data[idx+1] = 0; data[idx+2] = 0; data[idx+3] = 255;
+                        } else if (channel === 'G') {
+                            data[idx] = 0; data[idx+1] = g; data[idx+2] = 0; data[idx+3] = 255;
+                        } else if (channel === 'B') {
+                            data[idx] = 0; data[idx+1] = 0; data[idx+2] = b; data[idx+3] = 255;
+                        } else if (channel === 'A') {
+                            // Alpha channel remains grayscale in color mode
+                            data[idx] = a; data[idx+1] = a; data[idx+2] = a; data[idx+3] = 255;
+                        }
+                    }
+                }
+
+                ctx.putImageData(imgData, 0, 0);
+            });
+        }
+
+        // Download single channel
+        function downloadChannel(channel) {
+            const canvas = canvases[channel];
+            canvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${baseFileName}_${channel}.png`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                setTimeout(() => URL.revokeObjectURL(url), 1000);
+            }, 'image/png');
+        }
+
+        // Download all 4 channels (250ms delay to prevent browser popup block)
+        btnDownloadAll.addEventListener('click', () => {
+            const list = ['R', 'G', 'B', 'A'];
+            list.forEach((channel, index) => {
+                setTimeout(() => {
+                    downloadChannel(channel);
+                }, index * 250);
+            });
+        });
+    </script>
+</body>
+</html>

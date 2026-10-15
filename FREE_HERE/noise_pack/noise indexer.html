@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Godot RGBA Noise by ID Viewer</title>
+    <style>
+        :root {
+            --thumb-size: 130px;
+            --font-size: 26px;
+            --bg: #12141a;
+            --panel: #1b1e26;
+            --border: #2c3240;
+            --godot-blue: #478cbf;
+            --text: #e6edf3;
+            --text-dim: #8b949e;
+            --r-color: #ef4444;
+            --g-color: #22c55e;
+            --b-color: #3b82f6;
+            --a-color: #a855f7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1350px;
+        }
+
+        /* Top Bar */
+        .toolbar {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 18px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+
+        .btn-upload {
+            background: var(--godot-blue);
+            color: #fff;
+            padding: 7px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+        }
+
+        .btn-upload:hover { background: #5ba3d9; }
+        input[type="file"] { display: none; }
+
+        .group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .group label {
+            color: var(--text-dim);
+            font-weight: 500;
+        }
+
+        input[type="range"] {
+            accent-color: var(--godot-blue);
+            cursor: pointer;
+            width: 100px;
+        }
+
+        input[type="number"] {
+            width: 55px;
+            padding: 4px 6px;
+            background: #111317;
+            border: 1px solid var(--border);
+            color: #fff;
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .val-badge {
+            font-size: 11px;
+            font-family: monospace;
+            color: var(--text-dim);
+            min-width: 32px;
+        }
+
+        /* Noise Card Grid */
+        .noise-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: flex-start;
+        }
+
+        .noise-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.1s, border-color 0.15s;
+        }
+
+        .noise-card:hover {
+            border-color: var(--godot-blue);
+        }
+
+        /* ID Header */
+        .card-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .noise-id {
+            font-size: var(--font-size);
+            font-weight: 900;
+            color: #fff;
+            font-family: monospace;
+            line-height: 1;
+        }
+
+        .chan-tag {
+            font-size: 11px;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .tag-r { background: rgba(239, 68, 68, 0.2); color: var(--r-color); border: 1px solid var(--r-color); }
+        .tag-g { background: rgba(34, 197, 94, 0.2); color: var(--g-color); border: 1px solid var(--g-color); }
+        .tag-b { background: rgba(59, 130, 246, 0.2); color: var(--b-color); border: 1px solid var(--b-color); }
+        .tag-a { background: rgba(168, 85, 247, 0.2); color: var(--a-color); border: 1px solid var(--a-color); }
+
+        /* Thumbnail Canvas */
+        .thumb-wrap {
+            width: var(--thumb-size);
+            height: var(--thumb-size);
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #000;
+        }
+
+        .thumb-wrap canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+            image-rendering: pixelated;
+        }
+
+        .card-footer {
+            font-size: 11px;
+            color: var(--text-dim);
+            font-family: monospace;
+        }
+
+        /* Empty & Modal */
+        .empty-box {
+            width: 100%;
+            padding: 80px 20px;
+            text-align: center;
+            color: var(--text-dim);
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+        }
+
+        .btn-code {
+            background: transparent;
+            color: var(--godot-blue);
+            border: 1px solid var(--godot-blue);
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: auto;
+        }
+        .btn-code:hover { background: rgba(71, 140, 191, 0.1); }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <button class="btn-upload" onclick="document.getElementById('fileInput').click()">
+                📂 Open RGBA Texture
+            </button>
+            <input type="file" id="fileInput" accept="image/*">
+
+            <!-- Thumbnail Size Slider -->
+            <div class="group">
+                <label>Thumb Size:</label>
+                <input type="range" id="thumbSlider" min="50" max="250" value="130">
+                <span class="val-badge" id="thumbVal">130px</span>
+            </div>
+
+            <!-- Font Size Slider -->
+            <div class="group">
+                <label>ID Font Size:</label>
+                <input type="range" id="fontSlider" min="14" max="50" value="26">
+                <span class="val-badge" id="fontVal">26px</span>
+            </div>
+
+            <!-- Grid Options (Default 1x1 for single packed textures) -->
+            <div class="group" title="Set if the texture is a packed noise atlas grid">
+                <label>Grid (Cols × Rows):</label>
+                <input type="number" id="colsInput" value="1" min="1">
+                <span style="color:var(--text-dim)">×</span>
+                <input type="number" id="rowsInput" value="1" min="1">
+            </div>
+
+            <button class="btn-code" onclick="toggleCodeModal()">📄 View get_noise_by_id Code</button>
+        </div>
+
+        <!-- Noise Cards Grid -->
+        <div id="noiseGrid" class="noise-grid">
+            <div class="empty-box">
+                Select an RGBA packed noise texture to extract individual noise channels by ID.
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Code Godot Shader -->
+    <div id="codeModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:200; align-items:center; justify-content:center;">
+        <div style="background:var(--panel); border:1px solid var(--border); border-radius:8px; padding:20px; max-width:600px; width:90%;">
+            <h3 style="margin-bottom:10px;">Godot Shader: get_noise_by_id()</h3>
+            <pre style="background:#111317; padding:12px; border-radius:6px; font-size:12px; color:#79c0ff; overflow:auto; max-height:300px; font-family:monospace;">
+// Fetch scalar noise by ID from a packed 4-channel RGBA texture
+float get_noise_by_id(sampler2D noise_tex, vec2 uv, int id) {
+    vec4 n = texture(noise_tex, uv);
+    switch (id) {
+        case 0: return n.r;
+        case 1: return n.g;
+        case 2: return n.b;
+        case 3: return n.a;
+        default: return 0.0;
+    }
+}
+            </pre>
+            <div style="text-align:right; margin-top:12px;">
+                <button class="btn-upload" onclick="toggleCodeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const noiseGrid = document.getElementById('noiseGrid');
+        const thumbSlider = document.getElementById('thumbSlider');
+        const fontSlider = document.getElementById('fontSlider');
+        const thumbVal = document.getElementById('thumbVal');
+        const fontVal = document.getElementById('fontVal');
+        const colsInput = document.getElementById('colsInput');
+        const rowsInput = document.getElementById('rowsInput');
+
+        let loadedImage = null;
+
+        // Instant resizing via CSS Variables (GPU-accelerated, zero lag)
+        thumbSlider.addEventListener('input', (e) => {
+            document.documentElement.style.setProperty('--thumb-size', e.target.value + 'px');
+            thumbVal.textContent = e.target.value + 'px';
+        });
+
+        fontSlider.addEventListener('input', (e) => {
+            document.documentElement.style.setProperty('--font-size', e.target.value + 'px');
+            fontVal.textContent = e.target.value + 'px';
+        });
+
+        colsInput.addEventListener('change', extractNoises);
+        rowsInput.addEventListener('change', extractNoises);
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                const img = new Image();
+                img.onload = () => {
+                    loadedImage = img;
+                    extractNoises();
+                };
+                img.src = ev.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        // Fast Grayscale Noise Extraction
+        function extractNoises() {
+            if (!loadedImage) return;
+
+            const cols = Math.max(1, parseInt(colsInput.value) || 1);
+            const rows = Math.max(1, parseInt(rowsInput.value) || 1);
+            const totalCells = cols * rows;
+
+            noiseGrid.innerHTML = '';
+
+            const cellW = Math.floor(loadedImage.width / cols);
+            const cellH = Math.floor(loadedImage.height / rows);
+
+            // Downscale to max 160px preview for instant processing
+            const scale = Math.min(1, 160 / Math.max(cellW, cellH));
+            const tw = Math.max(1, Math.floor(cellW * scale));
+            const th = Math.max(1, Math.floor(cellH * scale));
+
+            const tempCvs = document.createElement('canvas');
+            tempCvs.width = tw;
+            tempCvs.height = th;
+            const tempCtx = tempCvs.getContext('2d');
+
+            const channels = [
+                { name: 'R', tag: 'tag-r', chanIdx: 0, code: '.r' },
+                { name: 'G', tag: 'tag-g', chanIdx: 1, code: '.g' },
+                { name: 'B', tag: 'tag-b', chanIdx: 2, code: '.b' },
+                { name: 'A', tag: 'tag-a', chanIdx: 3, code: '.a' }
+            ];
+
+            let globalId = 0;
+
+            for (let i = 0; i < totalCells; i++) {
+                const c = i % cols;
+                const r = Math.floor(i / cols);
+                const sx = c * cellW;
+                const sy = r * cellH;
+
+                // Draw tile to downscaled temp canvas
+                tempCtx.clearRect(0, 0, tw, th);
+                tempCtx.drawImage(loadedImage, sx, sy, cellW, cellH, 0, 0, tw, th);
+                const srcData = tempCtx.getImageData(0, 0, tw, th).data;
+                const pixelCount = tw * th;
+
+                // Extract 4 channels as separate grayscale noise cards
+                channels.forEach(ch => {
+                    const card = document.createElement('div');
+                    card.className = 'noise-card';
+
+                    const outCvs = document.createElement('canvas');
+                    outCvs.width = tw;
+                    outCvs.height = th;
+                    const outCtx = outCvs.getContext('2d');
+                    const outImg = outCtx.createImageData(tw, th);
+                    const dstData = outImg.data;
+
+                    for (let p = 0; p < pixelCount; p++) {
+                        const pxIdx = p * 4;
+                        const val = srcData[pxIdx + ch.chanIdx];
+                        dstData[pxIdx]     = val; // R
+                        dstData[pxIdx + 1] = val; // G
+                        dstData[pxIdx + 2] = val; // B
+                        dstData[pxIdx + 3] = 255; // Alpha opaque for preview
+                    }
+                    outCtx.putImageData(outImg, 0, 0);
+
+                    const subInfo = (totalCells > 1) ? `Cell (${c},${r}) ${ch.code}` : `Channel ${ch.name}`;
+
+                    card.innerHTML = `
+                        <div class="card-header">
+                            <span class="noise-id">#${globalId}</span>
+                            <span class="chan-tag ${ch.tag}">${ch.name}</span>
+                        </div>
+                        <div class="thumb-wrap"></div>
+                        <div class="card-footer">${subInfo}</div>
+                    `;
+
+                    card.querySelector('.thumb-wrap').appendChild(outCvs);
+                    noiseGrid.appendChild(card);
+
+                    globalId++;
+                });
+            }
+        }
+
+        function toggleCodeModal() {
+            const m = document.getElementById('codeModal');
+            m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+        }
+    </script>
+</body>
+</html>
